@@ -1,0 +1,35 @@
+.repositoryCard {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  min-width: 500px;
+}
+
+.repositoryCard:hover,
+.repositoryCard:focus,
+.repositoryCard:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.repositoryCard h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.repositoryCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.repositoryCardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
