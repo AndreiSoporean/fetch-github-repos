@@ -1,8 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
+
+import { useQuery } from "@apollo/client";
+import { LOAD_REPOS } from '../graphql/queries';
+
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const { error, loading, data } = useQuery(LOAD_REPOS);
+
+  console.log({ data })
   return (
     <div className={styles.container}>
       <Head>
