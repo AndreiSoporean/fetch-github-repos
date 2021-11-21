@@ -8,13 +8,13 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   min-width: 500px;
+  cursor: pointer;
 }
 
 .repositoryCard:hover,
-.repositoryCard:focus,
-.repositoryCard:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.repositoryCard:focus {
+  color: #219ebc;
+  border-color: #219ebc;
 }
 
 .repositoryCard h2 {

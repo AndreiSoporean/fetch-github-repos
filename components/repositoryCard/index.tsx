@@ -1,4 +1,6 @@
 import { Repository } from "../../pages"
+import Link from "next/link"
+
 import styles from '../../styles/RepositoryCard.module.css'
 
 interface RepositoryCardProps {
@@ -11,20 +13,22 @@ const formatDateToString = (date: string) => {
 }
 
 const RepositoryCard = (props: RepositoryCardProps): React.ReactElement => {
-  const { repository: { name, createdAt, id, stargazerCount, url, primaryLanguage } } = props;
+  const { repository: { node: { name, createdAt, id, stargazerCount, primaryLanguage } } } = props;
 
   const date = new Date(createdAt)
 
-
-  console.log(date.toDateString())
-  return <a href={url} className={styles.repositoryCard}>
-    <h2>{name}</h2>
-    <div className={styles.repositoryCardBottom}>
-      <p>Created At: {formatDateToString(createdAt)}</p>
-      <p>⭐️ {stargazerCount}</p>
-    </div>
-  </a>
-
+  return (
+    <Link href={`repositories/${id}`} passHref>
+      <div className={styles.repositoryCard}>
+        <h2>{name}</h2>
+        <div className={styles.repositoryCardBottom}>
+          <p>Created At: {formatDateToString(createdAt)}</p>
+          <p>⭐️ {stargazerCount}</p>
+          <p>{primaryLanguage?.name}</p>
+        </div>
+      </div>
+    </Link>
+  )
 }
 
 export default RepositoryCard
