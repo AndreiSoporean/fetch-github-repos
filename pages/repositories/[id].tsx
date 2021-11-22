@@ -8,6 +8,7 @@ import Chip from '@mui/material/Chip';
 
 import styles from '../../styles/Repositories.module.css'
 import Progress from "../../components/progress";
+import Header from "../../components/header";
 
 interface History {
   totalCount: number;
@@ -90,6 +91,7 @@ const RepositoriesSingle = (): React.ReactElement => {
 
   return (
     <div className={styles.repoContainer}>
+      <Header />
       <main className={styles.repoMain}>
         <a href={singleRepository?.node.url} target="_blank" rel="noreferrer">
           <div className={styles.repoSingleCard}>

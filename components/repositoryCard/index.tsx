@@ -13,19 +13,25 @@ const formatDateToString = (date: string) => {
 }
 
 const RepositoryCard = (props: RepositoryCardProps): React.ReactElement => {
-  const { repository: { node: { name, createdAt, id, stargazerCount, primaryLanguage } } } = props;
+  const { repository: { node: { owner, name, createdAt, id, stargazerCount, primaryLanguage } } } = props;
 
   const date = new Date(createdAt)
 
   return (
     <Link href={`repositories/${id}`} passHref>
       <div className={styles.repositoryCard}>
-        <h2>{name}</h2>
-        <div className={styles.repositoryCardBottom}>
-          <p>Created At: {formatDateToString(createdAt)}</p>
-          <p>⭐️ {stargazerCount}</p>
-          <p>{primaryLanguage?.name}</p>
+        <div className={styles.repositoryDetails}>
+          <p>{`Owner: ${owner.login}`}</p>
+          <p>{`Language: ${primaryLanguage ? primaryLanguage.name : `unknown`}`}</p>
         </div>
+        <div className={styles.repositoryMain}>
+          <h2>{name}</h2>
+          <div className={styles.repositoryCardBottom}>
+            <p>Created At: {formatDateToString(createdAt)}</p>
+            <p>⭐️ {stargazerCount}</p>
+          </div>
+        </div>
+
       </div>
     </Link>
   )

@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 4rem;
+  line-height: 0.8;
+  font-size: 4rem;
+  width: 500px;
+}
+
+.title span {
+  color: #219ebc;
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-start;
+}
+
+.navigation li {
+  list-style-type: none;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navigation li:hover {
+  color: #219ebc;
+}

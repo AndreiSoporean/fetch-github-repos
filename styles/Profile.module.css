@@ -1,0 +1,47 @@
+.profileContainer {
+  padding: 0 2rem;
+}
+
+.profileMain {
+  padding-bottom: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.profileCard {
+  padding: 5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #219ebc;
+  border-radius: 10px;
+  max-width: 1200px;
+  min-width: 800px;
+}
+
+.topDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profileImage {
+  border-radius: 10px;
+  padding-right: 5rem;
+}
+
+.name {
+  text-align: center;
+}
+
+.bottomDetails {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.languageChips {
+  display: flex;
+}

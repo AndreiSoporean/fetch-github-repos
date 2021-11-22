@@ -9,8 +9,13 @@ import Pagination from "../components/pagination";
 import withApollo from "../lib/withApollo";
 
 import styles from '../styles/Home.module.css'
+import Header from "../components/header";
 interface Language {
   name: string;
+}
+
+interface Owner {
+  login: string;
 }
 
 interface RepositoryNode {
@@ -19,6 +24,7 @@ interface RepositoryNode {
   name: string;
   primaryLanguage: Language;
   stargazerCount: number;
+  owner: Owner;
 }
 export interface Repository {
   cursor: string;
@@ -81,17 +87,8 @@ function Home() {
         <meta name="description" content="Created with next js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header />
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Github Repositories
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
         <div className={styles.grid}>
           {repos.length > 0 && (
             repos.map((repo: Repository) => <RepositoryCard key={repo.node.id} repository={repo} />)
