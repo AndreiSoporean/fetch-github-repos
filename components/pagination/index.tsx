@@ -1,5 +1,4 @@
-import { Repository } from "../../pages"
-import styles from '../../styles/RepositoryCard.module.css'
+import styles from '../../styles/Pagination.module.css'
 
 interface PaginationProps {
   value: number;
@@ -27,9 +26,9 @@ const Pagination = (props: PaginationProps): React.ReactElement => {
 
   return (
     <div>
-      <button onClick={handlePrev} disabled={!hasPrev}><span>Prev</span></button>
-      <span>{`${value} / ${Math.round(total / perPage)}`}</span>
-      <button onClick={handleNext} disabled={!hasNext}><span>Next</span></button>
+      <button className={styles.paginationBtn} onClick={handlePrev} disabled={!hasPrev}><span>Prev</span></button>
+      <span className={styles.pageCounter}>{`${value} / ${Math.round(total / perPage)}`}</span>
+      <button className={styles.paginationBtn} onClick={handleNext} disabled={!hasNext}><span>Next</span></button>
     </div>
 
   )

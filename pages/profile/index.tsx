@@ -9,12 +9,15 @@ import { getDataFromTree } from "@apollo/client/react/ssr";
 import Image from "next/image"
 import Chip from '@mui/material/Chip';
 import styles from "../../styles/Profile.module.css"
+import Progress from "../../components/progress";
+
 
 interface User {
   avatarUrl: string;
   bio: string;
   name: string;
 }
+
 
 const mergeAllLanguages = (repositories) => {
   const merged = repositories?.nodes.map((repo) => {
@@ -27,7 +30,7 @@ const mergeAllLanguages = (repositories) => {
   return flatArray;
 };
 
-const languagesCount = (languages) => languages?.reduce((acc, cur) => (acc[cur] = acc[cur] + 1 || 1, acc), {});
+const languagesCount = (languages: string[]) => languages?.reduce((acc, cur) => (acc[cur] = acc[cur] + 1 || 1, acc), {});
 
 
 const languagePercentage = (languages, totalCount) => {
@@ -59,7 +62,9 @@ const Profile = (): React.ReactElement => {
     }
   }, [data])
 
-  console.log({ userProfile })
+  if (loading) {
+    return <Progress />
+  }
 
   const repositories = data?.user.repositories;
   const result = mergeAllLanguages(repositories);
@@ -69,17 +74,6 @@ const Profile = (): React.ReactElement => {
 
   const percentages = count && languagePercentage(count, repositories?.totalCount);
 
-
-
-  // console.log({ percentages })
-
-  // console.log(repositories)
-
-
-  // console.log({ count })
-
-  // console.log({ result })
-  console.log(userProfile?.avatarUrl)
   return (
     <div className={styles.profileContainer}>
       <Header />
@@ -111,14 +105,11 @@ const Profile = (): React.ReactElement => {
                       />
                     )}
                   </div>
-
                 </div>
-
               </div>
             </>
           )}
         </div>
-
       </main>
     </div>
   )

@@ -87,24 +87,3 @@ export const GET_PROFILE = gql`
       }
     }
 `
-
-// export const SEARCH_REPO = gql`
-//     searchrepo(first: $first, after:$cursor, query: $query, type: $type) {
-//       edges {
-//           node {
-//               ... on Repository {
-//                   name
-//                   description
-//                   forkCount
-//                   owner {
-//                       avatarUrl
-//                   }
-//               }
-//           }
-//       }
-//       pageInfo {
-//           hasNextPage
-//           endCursor
-//       }
-//     }
-// `

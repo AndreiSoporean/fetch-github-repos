@@ -1,0 +1,30 @@
+.paginationBtn {
+  padding: 0.4rem 1rem;
+  margin: 2rem;
+  font-weight: bold;
+  background: #219ebc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.paginationBtn:hover {
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.paginationBtn:disabled {
+  background: #ade8f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.pageCounter {
+  font-size: 14px;
+  font-weight: bold;
+}
